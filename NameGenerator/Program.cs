@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 
 namespace NameGenerator
 {
@@ -19,12 +20,11 @@ namespace NameGenerator
             string gender = Console.ReadLine();
             if (gender=="m")
             {
-                Console.WriteLine("Man");
                 ReadNameTextFile("MaleNames.txt");
             }
             else if(gender=="f")
             {
-                Console.WriteLine("Women");
+                ReadNameTextFile("FemaleNames.txt");
             }
             else
             {
@@ -37,11 +37,8 @@ namespace NameGenerator
             int lineCount = File.ReadAllLines(TextFileName).Length;
             Random rnd = new Random();
             int RandomNumber = rnd.Next(0, lineCount);
-            //  string line;
-            //   StreamReader FileReader = new StreamReader(TextFileName);
-            //   for (int i = 0; i==RandomNumber; i++)
-            //   {}
-            //   Console.WriteLine(line);
+            string line = File.ReadLines(TextFileName).Skip(RandomNumber-1).Take(1).First();
+            Console.WriteLine("Generated name is: " + line);
         }
     }
 }
