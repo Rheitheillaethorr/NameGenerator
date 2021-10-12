@@ -7,6 +7,11 @@ namespace NameGenerator
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, choose your gender!");
+            AskForGender();
+        }
+
+        static void AskForGender()
+        {
             Console.WriteLine("Write m or f");
             Console.WriteLine("m - male");
             Console.WriteLine("f - female");
@@ -21,7 +26,8 @@ namespace NameGenerator
             }
             else
             {
-                Console.WriteLine("You choosed wrong letter");
+              Console.WriteLine("You choosed wrong letter, try again");
+                AskForGender();
             }
         }
     }
